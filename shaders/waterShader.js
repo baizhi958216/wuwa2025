@@ -111,13 +111,13 @@ export const fragmentShader = `
 
     // Add caustics lighting
     vec3 color = texColor.rgb;
-    color += vec3(caustics) * vec3(0.8, 0.9, 1.0) * 0.3;
+    color += vec3(caustics) * vec3(1.0, 1.0, 1.0) * 0.3;
 
     // Add fresnel-like edge highlights
     vec2 center = vec2(0.5);
     float distFromCenter = length(uv - center);
     float fresnel = pow(distFromCenter * 1.5, 2.0) * 0.03;
-    color += vec3(fresnel) * vec3(0.7, 0.85, 1.0);
+    color += vec3(fresnel) * vec3(1.0, 1.0, 1.0);
 
     // Add specular highlights on ripples
     float specular = pow(max(totalRipple * 10.0, 0.0), 3.0) * 0.2;
